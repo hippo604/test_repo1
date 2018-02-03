@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HelloWorld2.GreetPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms Baby!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BindingContext="{x:Reference slider}" 
+                     HorizontalOptions="Center" VerticalOptions="Center">
+            <BoxView Color="Green" Opacity="{Binding Value}"/>
+            <Label  
+                   Text="{Binding Value, 
+                   StringFormat='Value is {0:F2}' }" 
+                   
+                Opacity="{Binding Value}"
+            />
+            <Slider x:Name="slider"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
